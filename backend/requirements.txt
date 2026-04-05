@@ -8,3 +8,4 @@ pydantic
 neurokit2
 joblib
 scipy
+requests
