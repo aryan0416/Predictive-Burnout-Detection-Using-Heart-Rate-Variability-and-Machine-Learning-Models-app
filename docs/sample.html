@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Ethereal Clinical | Stress &amp; Burnout Analytics</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;600;700;800&amp;family=Inter:wght@300;400;500;600&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "error-container": "#ffdad6",
+                    "inverse-primary": "#b5ccb9",
+                    "on-primary": "#ffffff",
+                    "surface-tint": "#4e6354",
+                    "surface-container-low": "#f4f3f2",
+                    "surface-container-highest": "#e3e2e1",
+                    "on-secondary": "#ffffff",
+                    "inverse-on-surface": "#f1f0f0",
+                    "on-surface-variant": "#434843",
+                    "on-tertiary-container": "#213038",
+                    "secondary": "#775930",
+                    "on-primary-container": "#1e3225",
+                    "surface-bright": "#faf9f8",
+                    "on-secondary-fixed": "#291800",
+                    "secondary-fixed-dim": "#e7c08e",
+                    "tertiary": "#516169",
+                    "on-secondary-container": "#795b32",
+                    "outline-variant": "#c3c8c1",
+                    "primary": "#4e6354",
+                    "secondary-fixed": "#ffddb4",
+                    "primary-fixed": "#d0e9d4",
+                    "surface-container-high": "#e9e8e7",
+                    "primary-container": "#849b89",
+                    "tertiary-fixed": "#d5e5ef",
+                    "tertiary-fixed-dim": "#b9c9d3",
+                    "on-primary-fixed": "#0b1f13",
+                    "surface-dim": "#dadad9",
+                    "on-secondary-fixed-variant": "#5c421b",
+                    "primary-fixed-dim": "#b5ccb9",
+                    "on-tertiary": "#ffffff",
+                    "surface-container": "#eeeeed",
+                    "background": "#faf9f8",
+                    "outline": "#737873",
+                    "on-error-container": "#93000a",
+                    "inverse-surface": "#2f3130",
+                    "on-error": "#ffffff",
+                    "surface": "#faf9f8",
+                    "tertiary-container": "#8898a1",
+                    "on-background": "#1a1c1c",
+                    "error": "#ba1a1a",
+                    "on-primary-fixed-variant": "#374c3d",
+                    "surface-container-lowest": "#ffffff",
+                    "on-surface": "#1a1c1c",
+                    "on-tertiary-fixed": "#0e1d25",
+                    "secondary-container": "#ffd6a3",
+                    "on-tertiary-fixed-variant": "#3a4951",
+                    "surface-variant": "#e3e2e1"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.25rem",
+                    "lg": "0.5rem",
+                    "xl": "0.75rem",
+                    "full": "9999px"
+            },
+            "fontFamily": {
+                    "headline": ["Manrope"],
+                    "body": ["Inter"],
+                    "label": ["Inter"]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        body { font-family: 'Inter', sans-serif; -webkit-font-smoothing: antialiased; }
+        .font-headline { font-family: 'Manrope', sans-serif; }
+        .glass-panel {
+            background: rgba(250, 249, 248, 0.7);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+        }
+        .circular-progress {
+            background: conic-gradient(#4e6354 28%, #eeeeed 0);
+        }
+        .custom-shadow {
+            box-shadow: 0px 4px 20px rgba(78, 99, 84, 0.04), 0px 10px 40px rgba(26, 28, 28, 0.06);
+        }
+    </style>
+</head>
+<body class="bg-background text-on-surface min-h-screen flex flex-col">
+<!-- TopNavBar -->
+<header class="fixed top-0 w-full z-50 bg-stone-50/70 dark:bg-stone-900/70 backdrop-blur-xl flex justify-between items-center px-8 h-20 max-w-full">
+<div class="flex items-center gap-8">
+<span class="text-xl font-bold tracking-tight text-stone-900 dark:text-stone-50 font-headline">Ethereal Clinical</span>
+<nav class="hidden md:flex gap-6 items-center">
+<a class="text-stone-500 dark:text-stone-400 hover:text-emerald-700 transition-colors" href="#">Dashboard</a>
+<a class="text-stone-500 dark:text-stone-400 hover:text-emerald-700 transition-colors" href="#">Biometrics</a>
+<a class="text-emerald-800 dark:text-emerald-400 font-semibold border-b-2 border-emerald-800 dark:border-emerald-400 pb-1" href="#">Predictions</a>
+<a class="text-stone-500 dark:text-stone-400 hover:text-emerald-700 transition-colors" href="#">Resources</a>
+</nav>
+</div>
+<div class="flex items-center gap-4">
+<button class="p-2 hover:bg-stone-200/50 dark:hover:bg-stone-800/50 rounded-full transition-all active:scale-95">
+<span class="material-symbols-outlined text-on-surface-variant">notifications</span>
+</button>
+<button class="p-2 hover:bg-stone-200/50 dark:hover:bg-stone-800/50 rounded-full transition-all active:scale-95">
+<span class="material-symbols-outlined text-on-surface-variant">settings</span>
+</button>
+<div class="h-10 w-10 rounded-full overflow-hidden ml-2 border border-outline-variant/20">
+<img alt="User profile" class="h-full w-full object-cover" data-alt="close-up portrait of a serene professional woman in a bright modern clinical setting, soft natural lighting" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAvlkWn-CScdZaJRe4uM5aYSG9VKpFX8ttolYyRdgFzRnvntOvs_gPcUHuXSleGf1kQIT1_4CkdTsygq5_-TA4jH_PH2Yj8Vquf70NL14A2j__kj0LRPiA28jXnbwvoShPG6qpuZyc0p-UgeVQfTeyeqwG7m6KqP4KthT6n5EjnYW1JGAXksr4ilfQxgGdVGKynyai9as_Zqy7eq2Nfw2kCXW9qxQ26-0ZqHKG-IbKsnlu0rSHZRxv-SEcRp0cQeM7EGSbu8RV0SOE"/>
+</div>
+</div>
+</header>
+<main class="flex-grow pt-32 pb-24 px-8 md:px-16 max-w-7xl mx-auto w-full">
+<div class="mb-12">
+<h1 class="font-headline text-5xl font-extrabold tracking-tight text-on-surface mb-2">Predictive Wellness</h1>
+<p class="text-on-surface-variant text-lg max-w-xl">Harness clinical-grade HRV metrics to anticipate physiological burnout before it impacts your performance.</p>
+</div>
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-start">
+<!-- Left Column: HRV Input Form -->
+<div class="lg:col-span-5 flex flex-col gap-8">
+<section class="glass-panel p-10 rounded-xl custom-shadow border border-outline-variant/10">
+<div class="flex items-center gap-3 mb-8">
+<span class="material-symbols-outlined text-primary" style="font-variation-settings: 'FILL' 1;">monitor_heart</span>
+<h2 class="text-xl font-bold font-headline tracking-tight">Biometric Profile</h2>
+</div>
+<form class="space-y-6">
+<div>
+<label class="block text-xs font-semibold tracking-widest uppercase text-on-surface-variant mb-2 ml-1">Baseline HRV (ms)</label>
+<input class="w-full bg-surface-container-low border-none rounded-xl px-4 py-4 focus:ring-1 focus:ring-primary/20 focus:bg-surface-container-lowest transition-all" placeholder="e.g., 65" type="number"/>
+</div>
+<div class="grid grid-cols-2 gap-4">
+<div>
+<label class="block text-xs font-semibold tracking-widest uppercase text-on-surface-variant mb-2 ml-1">Resting HR</label>
+<input class="w-full bg-surface-container-low border-none rounded-xl px-4 py-4 focus:ring-1 focus:ring-primary/20 focus:bg-surface-container-lowest transition-all" placeholder="bpm" type="number"/>
+</div>
+<div>
+<label class="block text-xs font-semibold tracking-widest uppercase text-on-surface-variant mb-2 ml-1">Daily Strain</label>
+<input class="w-full bg-surface-container-low border-none rounded-xl px-4 py-4 focus:ring-1 focus:ring-primary/20 focus:bg-surface-container-lowest transition-all" placeholder="0-21" type="number"/>
+</div>
+</div>
+<div>
+<label class="block text-xs font-semibold tracking-widest uppercase text-on-surface-variant mb-2 ml-1">Sleep Architecture Quality</label>
+<div class="flex flex-wrap gap-2">
+<button class="px-5 py-2 rounded-full bg-primary text-on-primary text-sm font-medium" type="button">Optimal</button>
+<button class="px-5 py-2 rounded-full bg-surface-container-high text-on-surface-variant text-sm font-medium hover:bg-surface-container-highest transition-colors" type="button">Fragmented</button>
+<button class="px-5 py-2 rounded-full bg-surface-container-high text-on-surface-variant text-sm font-medium hover:bg-surface-container-highest transition-colors" type="button">Deficient</button>
+</div>
+</div>
+<div class="pt-4">
+<button class="w-full bg-gradient-to-br from-primary to-primary-container text-on-primary py-5 rounded-xl font-bold tracking-wide custom-shadow hover:brightness-105 active:scale-[0.98] transition-all">
+                                Analyze HRV Profile
+                            </button>
+</div>
+</form>
+</section>
+<!-- Informational Small Card -->
+<div class="bg-surface-container-low p-6 rounded-xl border-l-4 border-secondary-container">
+<p class="text-sm italic text-on-secondary-container leading-relaxed">
+                        "Burnout is often the result of prolonged sympathetic nervous system dominance. Measuring your HRV provides a direct window into your vagal tone."
+                    </p>
+</div>
+</div>
+<!-- Right Column: Results Dashboard -->
+<div class="lg:col-span-7 space-y-8">
+<!-- Main Result Card -->
+<section class="bg-surface-container-lowest p-10 rounded-xl custom-shadow border border-outline-variant/5">
+<div class="flex justify-between items-start mb-12">
+<div>
+<h2 class="text-2xl font-bold font-headline mb-1">Burnout Analysis</h2>
+<p class="text-on-surface-variant font-medium">Predicted Risk Projection (30 Days)</p>
+</div>
+<span class="px-4 py-1.5 bg-secondary-container/30 text-secondary text-xs font-bold uppercase tracking-widest rounded-full">Moderate Concern</span>
+</div>
+<div class="flex flex-col md:flex-row items-center gap-12">
+<!-- Gauge -->
+<div class="relative w-48 h-48 flex items-center justify-center rounded-full p-1 bg-surface-container">
+<div class="w-full h-full rounded-full circular-progress flex items-center justify-center">
+<div class="w-40 h-40 bg-surface-container-lowest rounded-full flex flex-col items-center justify-center">
+<span class="text-4xl font-extrabold font-headline">28%</span>
+<span class="text-[10px] uppercase tracking-tighter text-on-surface-variant font-bold">Risk Score</span>
+</div>
+</div>
+</div>
+<!-- Data Table -->
+<div class="flex-grow space-y-6 w-full">
+<div class="space-y-2">
+<div class="flex justify-between text-sm mb-1">
+<span class="font-medium text-on-surface">Sleep Quality Impact</span>
+<span class="text-primary font-bold">65%</span>
+</div>
+<div class="h-2 w-full bg-surface-container rounded-full overflow-hidden">
+<div class="h-full bg-primary rounded-full" style="width: 65%;"></div>
+</div>
+</div>
+<div class="space-y-2">
+<div class="flex justify-between text-sm mb-1">
+<span class="font-medium text-on-surface">Workload Sustainability</span>
+<span class="text-secondary font-bold">42%</span>
+</div>
+<div class="h-2 w-full bg-surface-container rounded-full overflow-hidden">
+<div class="h-full bg-secondary-fixed-dim rounded-full" style="width: 42%;"></div>
+</div>
+</div>
+<div class="space-y-2">
+<div class="flex justify-between text-sm mb-1">
+<span class="font-medium text-on-surface">Stress Resilience Factor</span>
+<span class="text-on-tertiary-fixed-variant font-bold">88%</span>
+</div>
+<div class="h-2 w-full bg-surface-container rounded-full overflow-hidden">
+<div class="h-full bg-tertiary-container rounded-full" style="width: 88%;"></div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Bento Secondary Grid -->
+<div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+<div class="bg-surface-container p-8 rounded-xl flex flex-col gap-4">
+<span class="material-symbols-outlined text-primary text-3xl">psychology</span>
+<h3 class="font-headline font-bold text-lg">Neuro-Feedback</h3>
+<p class="text-sm text-on-surface-variant leading-relaxed">Based on your HRV trends, your parasympathetic recovery is occurring 12% slower than your quarterly average.</p>
+<a class="text-primary text-xs font-bold uppercase tracking-widest mt-2 flex items-center gap-1 hover:gap-2 transition-all" href="#">
+                            View Deep Dive <span class="material-symbols-outlined text-sm">arrow_forward</span>
+</a>
+</div>
+<div class="relative overflow-hidden rounded-xl h-full min-h-[200px] flex items-end">
+<img alt="Serene background" class="absolute inset-0 w-full h-full object-cover grayscale-[30%] opacity-80" data-alt="minimalist workspace with a small green plant, a clean notebook, and a glass of water, soft morning sunlight" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAIQU3Gt0Qg5XweUry8msEScvl3IoIUnwmnWG33p6O3hQXnAi_KD3-6RQIQR2rUoLUCIEawQCHSqCAuF3JxLIJ3GFDzzRp7MvTPzlkf5cZbsmP0jq-QzEPu9TyXZOOSy-2minBHFDILukRWdTzOf0abupEWeh4twbQWfp3czEbtDDjAmN39CP0Sbe8lTIwCeJRKmsdR3XdZi1Mx2GPxxmihvSfzCOlPLuqa8fFYGUEonJaT3nWgECBpcmI3uy7JECDKacMLGJ4nyRg"/>
+<div class="relative p-8 z-10 bg-gradient-to-t from-stone-900/40 to-transparent w-full">
+<h3 class="font-headline font-bold text-white text-lg">Clinical Recommendation</h3>
+<p class="text-xs text-stone-100/90 mt-1">Schedule a 15-minute resonance breathing session today.</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</main>
+<!-- Footer -->
+<footer class="w-full py-12 mt-auto bg-stone-50 dark:bg-stone-950 flex flex-col md:flex-row justify-between items-center px-12 border-t border-stone-200/20">
+<div class="flex flex-col items-center md:items-start gap-2">
+<span class="font-bold text-stone-900 dark:text-stone-50 font-headline">Ethereal Clinical</span>
+<p class="text-stone-400 dark:text-stone-600 text-[10px] uppercase tracking-wider font-body">© 2024 Ethereal Clinical. Clinical Serenity Guaranteed.</p>
+</div>
+<nav class="flex flex-wrap justify-center gap-8 mt-8 md:mt-0">
+<a class="text-stone-400 dark:text-stone-600 hover:text-emerald-600 dark:hover:text-emerald-400 text-[10px] uppercase tracking-wider font-body transition-opacity opacity-80 hover:opacity-100" href="#">Privacy Policy</a>
+<a class="text-stone-400 dark:text-stone-600 hover:text-emerald-600 dark:hover:text-emerald-400 text-[10px] uppercase tracking-wider font-body transition-opacity opacity-80 hover:opacity-100" href="#">Terms of Service</a>
+<a class="text-stone-400 dark:text-stone-600 hover:text-emerald-600 dark:hover:text-emerald-400 text-[10px] uppercase tracking-wider font-body transition-opacity opacity-80 hover:opacity-100" href="#">Clinical Methodology</a>
+<a class="text-stone-400 dark:text-stone-600 hover:text-emerald-600 dark:hover:text-emerald-400 text-[10px] uppercase tracking-wider font-body transition-opacity opacity-80 hover:opacity-100" href="#">Contact Support</a>
+</nav>
+</footer>
+</body></html>

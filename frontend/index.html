@@ -1,0 +1,100 @@
+<!doctype html>
+<html class="light" lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Ethereal Clinical | Stress &amp; Burnout Analytics</title>
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;600;700;800&amp;family=Inter:wght@300;400;500;600&amp;display=swap" rel="stylesheet"/>
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+    <script id="tailwind-config">
+          tailwind.config = {
+            darkMode: "class",
+            theme: {
+              extend: {
+                "colors": {
+                        "error-container": "#ffdad6",
+                        "inverse-primary": "#b5ccb9",
+                        "on-primary": "#ffffff",
+                        "surface-tint": "#4e6354",
+                        "surface-container-low": "#f4f3f2",
+                        "surface-container-highest": "#e3e2e1",
+                        "on-secondary": "#ffffff",
+                        "inverse-on-surface": "#f1f0f0",
+                        "on-surface-variant": "#434843",
+                        "on-tertiary-container": "#213038",
+                        "secondary": "#775930",
+                        "on-primary-container": "#1e3225",
+                        "surface-bright": "#faf9f8",
+                        "on-secondary-fixed": "#291800",
+                        "secondary-fixed-dim": "#e7c08e",
+                        "tertiary": "#516169",
+                        "on-secondary-container": "#795b32",
+                        "outline-variant": "#c3c8c1",
+                        "primary": "#4e6354",
+                        "secondary-fixed": "#ffddb4",
+                        "primary-fixed": "#d0e9d4",
+                        "surface-container-high": "#e9e8e7",
+                        "primary-container": "#849b89",
+                        "tertiary-fixed": "#d5e5ef",
+                        "tertiary-fixed-dim": "#b9c9d3",
+                        "on-primary-fixed": "#0b1f13",
+                        "surface-dim": "#dadad9",
+                        "on-secondary-fixed-variant": "#5c421b",
+                        "primary-fixed-dim": "#b5ccb9",
+                        "on-tertiary": "#ffffff",
+                        "surface-container": "#eeeeed",
+                        "background": "#faf9f8",
+                        "outline": "#737873",
+                        "on-error-container": "#93000a",
+                        "inverse-surface": "#2f3130",
+                        "on-error": "#ffffff",
+                        "surface": "#faf9f8",
+                        "tertiary-container": "#8898a1",
+                        "on-background": "#1a1c1c",
+                        "error": "#ba1a1a",
+                        "on-primary-fixed-variant": "#374c3d",
+                        "surface-container-lowest": "#ffffff",
+                        "on-surface": "#1a1c1c",
+                        "on-tertiary-fixed": "#0e1d25",
+                        "secondary-container": "#ffd6a3",
+                        "on-tertiary-fixed-variant": "#3a4951",
+                        "surface-variant": "#e3e2e1"
+                },
+                "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                },
+                "fontFamily": {
+                        "headline": ["Manrope"],
+                        "body": ["Inter"],
+                        "label": ["Inter"]
+                }
+              },
+            },
+          }
+    </script>
+    <style>
+            body { font-family: 'Inter', sans-serif; -webkit-font-smoothing: antialiased; }
+            .font-headline { font-family: 'Manrope', sans-serif; }
+            .glass-panel {
+                background: rgba(250, 249, 248, 0.7);
+                backdrop-filter: blur(20px);
+                -webkit-backdrop-filter: blur(20px);
+            }
+            .circular-progress {
+                background: conic-gradient(#4e6354 28%, #eeeeed 0);
+            }
+            .custom-shadow {
+                box-shadow: 0px 4px 20px rgba(78, 99, 84, 0.04), 0px 10px 40px rgba(26, 28, 28, 0.06);
+            }
+    </style>
+  </head>
+  <body class="bg-background text-on-surface min-h-screen flex flex-col">
+    <div id="root"></div>
+    <script type="module" src="/src/main.jsx"></script>
+  </body>
+</html>

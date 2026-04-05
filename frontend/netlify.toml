@@ -1,0 +1,9 @@
+[build]
+  command = "npm run build"
+  publish = "dist"
+
+# This handles routing for React Router (SPA) so refreshing a route doesn't return a 404
+[[redirects]]
+  from = "/*"
+  to = "/index.html"
+  status = 200
