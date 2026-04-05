@@ -42,7 +42,8 @@ export default function Predictions() {
     setGrokError(null)
     
     try {
-      const API_BASE = import.meta.env.VITE_API_URL || 'http://localhost:8000';
+      const BASE = import.meta.env.VITE_API_URL || 'http://localhost:8000';
+      const API_BASE = BASE.replace(/\/$/, '');
       const response = await fetch(`${API_BASE}/predict`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
@@ -86,7 +87,8 @@ export default function Predictions() {
     setGrokLoading(true)
     setGrokError(null)
     try {
-      const API_BASE = import.meta.env.VITE_API_URL || 'http://localhost:8000';
+      const BASE = import.meta.env.VITE_API_URL || 'http://localhost:8000';
+      const API_BASE = BASE.replace(/\/$/, '');
       const response = await fetch(`${API_BASE}/grok-analysis`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
